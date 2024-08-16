@@ -1,12 +1,18 @@
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <>
-      <h1 className="bg-green-400 text-white text-xl text-center py-3 rounded-sm">
-        App is live
-      </h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
